@@ -26,8 +26,14 @@ SECRET_KEY = ')#tlopjpwcs)v5kasay5h5!1*0+6mjd+c^z6prpioexd4*vlbp'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+LOGIN_URL = 'user:login'
+LOGIN_REDIRECT_URL = 'photo:list'
 
+LOGOUT_REDIRECT_URL = 'photo:list'
+MEDIA_URL = '/media/'
 
+MEDIA_ROOT = BASE_DIR / 'media/'
+USE_TZ = True
 # Application definition
 
 INSTALLED_APPS = [
@@ -40,6 +46,7 @@ INSTALLED_APPS = [
      # Custom apps
     'photoapp',
     'taggit',
+    'user',
 ]
 TAGGIT_CASE_INSENSITIVE = True
 MIDDLEWARE = [
@@ -53,13 +60,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'config.urls'
-MEDIA_URL = '/media/'
-
-MEDIA_ROOT = BASE_DIR / 'media/'
+ 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
