@@ -1,5 +1,7 @@
-# photoapp/urls.py
+'''Photoapp URL patterns'''
+
 from django.urls import path
+
 from .views import (
     PhotoListView,
     PhotoTagListView,
@@ -9,8 +11,7 @@ from .views import (
     PhotoDeleteView
 )
 
- 
- app_name = 'photo'
+app_name = 'photo'
 
 urlpatterns = [
     path('', PhotoListView.as_view(), name='list'),
@@ -25,4 +26,3 @@ urlpatterns = [
 
     path('photo/<int:pk>/delete/', PhotoDeleteView.as_view(), name='delete'),
 ]
-
